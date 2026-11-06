@@ -1,0 +1,14 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // همان سطح دسترسی ساده نسخه فعلی پروژه؛ برای استفاده واقعی باید Firebase Auth و نقش مدیر اضافه شود.
+    match /profiles/{allPaths=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+    match /resources/{allPaths=**} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}
